@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import HeroBanner from '../../Component/Home/HeroBanner'
 import Categories from '../../Component/Home/Categories'
 import Advertise from '../../Component/Home/Advertise'
@@ -9,14 +9,16 @@ import Insta from '../../Component/Home/Insta'
 import Testimonial from '../../Component/Home/Testimonial'
 
 function Home() {
+ const [categoryName,setcategoryName] = useState("")
+//  console.log(categoryName)
   return (
     <>
       <div>
         <HeroBanner />
-        <Categories />
+        <Categories setcategoryName={setcategoryName} />
         <Advertise/>
         <Services/> 
-        <HomeProduct/>
+        <HomeProduct categoryName={categoryName}/>
         <Deals/>
         <Testimonial/><br /><br />
         <Insta/><br /><br />

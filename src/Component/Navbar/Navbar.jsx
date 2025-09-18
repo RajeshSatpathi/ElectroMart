@@ -4,7 +4,9 @@ import { IoSearch } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
+import { useSelector } from 'react-redux';
 const Navbar = () => {
+    const cart = useSelector(state => state.cart)
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -31,7 +33,12 @@ const Navbar = () => {
                         <IoSearch size={18} />
                         <FaUser size={18} />
                         <FaHeart size={18} />
-                        <FaCartShopping size={18} />
+                        <Link to="/cart" className='flex  justify-center items-center'>
+                            <span className='relative bottom-4 left-6'>{cart.totalQuantity}</span>
+                            <FaCartShopping size={19} />
+                        </Link>
+
+
 
                     </div>
                     {/* Mobile Menu Button */}
@@ -83,6 +90,7 @@ const Navbar = () => {
                             <IoSearch size={18} />
                             <FaUser size={18} />
                             <FaHeart size={18} />
+                            <span></span>
                             <FaCartShopping size={18} />
 
                         </div>
